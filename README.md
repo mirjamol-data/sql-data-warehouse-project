@@ -146,4 +146,45 @@ The schema follows **one(mandatory)-to-many(optional) relationships**. This ensu
 
 Big thanks and credits to Baraa Khatib Salkini ([DataWithBaraa.com](https://www.datawithbaraa.com/)). I followed his project workthrough.  
 You can find the full course here: [link](https://youtube.com/playlist?list=PLNcg_FV9n7qZY_2eAtUzEUulNjTJREhQe&si=G-88-AkSjBYLzNGe)
-.
+
+---
+
+## 🗂️ Repository Structure
+
+```
+data-warehouse-project/
+│
+├── datasets/                          # Raw source data (CSV files)
+│   ├── source_crm/
+│   │   ├── cust_info.csv
+│   │   ├── prd_info.csv
+│   │   └── sales_details.csv
+│   └── source_erp/
+│       ├── cust_az12.csv
+│       ├── loc_a101.csv
+│       └── px_cat_g1v2.csv
+│
+├── docs/                              # Architecture diagrams
+│   ├── data_architecture.png
+│   ├── data_flow.png
+│   ├── data_integration.png
+│   ├── data_model_golden_layer.png
+│   └── data_layers.pdf
+│
+├── scripts/
+│   ├── init_database.sql              # Creates DataWarehouse DB + schemas
+│   ├── bronze/
+│   │   ├── ddl_bronze.sql             # Bronze table definitions
+│   │   └── proc_load_bronze.sql       # BULK INSERT stored procedure
+│   ├── silver/
+│   │   ├── ddl_silver.sql             # Silver table definitions
+│   │   └── proc_load_silver.sql       # ETL stored procedure (Bronze → Silver)
+│   └── gold/
+│       └── ddl_gold.sql               # Gold views (Star Schema)
+│
+├── tests/                             # Data quality & validation checks
+│
+└── README.md
+```
+
+---
